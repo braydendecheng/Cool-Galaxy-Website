@@ -1,0 +1,48 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    background-color: white !important;
+}
+
+.logo {
+    margin-top: -20px;
+    width: 250px;
+}
+
+.nav-link {
+    color: black !important;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #4a9cee;
+    border-color: #4a9cee;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+}
+
+.btn-info {
+    background-color: #4a9cee;
+    border-color: #4a9cee;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+}
+
+.btn-info:hover {
+    background-color: #3a8bff;
+    border-color: #3a8bff;
+}
+
+.bg-light-blue {
+    background-color: #f0f6ff;
+}
+
+.technician-image {
+    max-width: 90%;
+    height: auto;
+}
+
