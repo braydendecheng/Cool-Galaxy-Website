@@ -17,45 +17,28 @@ def contact():
 services = [
     {
         "id": 1,
-        "name": "Aircon Servicing",
-        "image": "static/img/ac-technician.jpg",
-        "description": "Professional removal of built-up jelly-like substances in your air conditioning unit. This sticky residue can reduce efficiency and lead to system failure if not properly cleaned."
+        "name": "Installation Projects",
+        "image": "static\img\installation works.jpg",
+        "description": "Our expert team handles the installation of various air conditioning systems, ensuring optimal performance and energy efficiency for your space."
+
     },
     {
         "id": 2,
-        "name": "Installation Project",
-        "image": "static/images/condenser_dirty.jpg",
-        "description": "Deep cleaning of dirty condensers to prevent overheating. Our thorough cleaning process removes dirt, debris, and other contaminants that can cause your system to work harder and consume more energy."
+        "name": "VRV Systems",
+        "image": "static/img/VRV Systems.jpg",
+        "description": "We offer advanced Variable Refrigerant Volume (VRV) systems that provide flexible and energy-efficient climate control suitable for diverse environments."
     },
     {
         "id": 3,
-        "name": "VRV System",
-        "image": "static/images/aircon_clean.jpg",
-        "description": "Complete cleaning of your entire aircon system. We clean all components including filters, coils, fins, and drainage systems to ensure optimal performance and air quality."
+        "name": "Ducting Work",
+        "image": "static/img/Ducting Work.jpg",
+        "description": "Our specialists are proficient in designing and installing ducting systems that facilitate efficient air distribution while maintaining aesthetic appeal."
     },
     {
         "id": 4,
-        "name": "Ducting Work",
-        "image": "static/images/preventive_maintenance.jpg",
-        "description": "Regular maintenance service to prevent breakdowns and extend the life of your air conditioning system. Includes inspection, cleaning, and minor repairs."
-    },
-    {
-        "id": 5,
-        "name": "Residential Projects",
-        "image": "static/images/chemical_overhaul.jpg",
-        "description": "Comprehensive chemical cleaning process that removes stubborn dirt, mold, and bacteria from your system. Improves cooling efficiency and indoor air quality."
-    },
-    {
-        "id": 6,
-        "name": "Chemical Overhaul Servicing",
-        "image": "static/images/low_gas.jpg",
-        "description": "Precise measurement of refrigerant levels to identify leaks or insufficient cooling capacity. Low refrigerant levels can lead to poor cooling performance and system damage."
-    },
-    {
-        "id": 7,
-        "name": "Commercial Installation With Ducting Work",
-        "image": "static/images/gas_topup.jpg",
-        "description": "Professional refrigerant recharging service. We use the correct type and amount of refrigerant to restore your system's cooling efficiency."
+        "name": "Servicing and Maintenance",
+        "image": "static/img/ac-technician.jpg",
+        "description": "We provide regular maintenance and servicing to ensure your air conditioning systems operate at peak performance, prolonging their lifespan and enhancing energy efficiency."
     }
     
 ]

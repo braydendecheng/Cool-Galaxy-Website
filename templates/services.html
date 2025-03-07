@@ -3,31 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aircon Repair Project Gallery</title>
+    <title>Services</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Services page specific styles */
         .service-card {
             transition: transform 0.3s ease;
             margin-bottom: 30px;
             height: 100%;
+            position: relative;
+            overflow: hidden;
         }
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .service-image {
-            height: 300px; /* 50% larger than original */
+            height: 300px;
             object-fit: cover;
         }
         .card-title {
-            font-size: 1.5rem; /* Larger font size */
-            text-align: center; /* Center the heading */
-            margin-bottom: 1rem; /* Add some space below the heading */
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
         }
         .main-heading {
-            font-size: 3rem; /* Larger heading */
+            font-size: 3rem;
             margin-bottom: 2rem;
+        }
+        
+        /* New description overlay styles */
+        .service-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #4a9cee;
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 10;
+            max-height: 70%;
+            overflow-y: auto;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-card.description-active .service-description {
+            transform: translateY(0);
+        }
+        
+        .view-details-btn {
+            background-color: #4a9cee;
+            border: 2px solid #3a8bff;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .view-details-btn:hover {
+            background-color: #3a8bff;
+            border-color: #3a8bff;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -36,24 +83,26 @@
     {% include 'navbar.html' %}
 
     <div class="container py-5">
-        <h1 class="text-center main-heading">Aircon Repair Project Gallery</h1>
+        <h1 class="text-center main-heading">Services</h1>
         
         <div class="row">
             {% for service in services %}
             <div class="col-md-4 mb-4">
-                <div class="card service-card">
+                <div class="card service-card" id="service-card-{{ service.id }}">
                     <img src="{{ service.image }}" class="card-img-top service-image" alt="{{ service.name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ service.name }}</h5>
-                        <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#collapse{{ service.id }}" aria-expanded="false" 
-                                aria-controls="collapse{{ service.id }}">
-                            View Description
+                        <button class="btn view-details-btn w-100" type="button" data-service-id="{{ service.id }}">
+                            Learn More
                         </button>
-                        <div class="collapse mt-3" id="collapse{{ service.id }}">
-                            <div class="card card-body">
-                                {{ service.description }}
-                            </div>
+                    </div>
+                    
+                    <!-- Description overlay -->
+                    <div class="service-description" id="description-{{ service.id }}">
+                        <button class="close-btn" aria-label="Close" data-service-id="{{ service.id }}">×</button>
+                        <h5 class="mb-3">{{ service.name }} Details</h5>
+                        <div class="description-content">
+                            {{ service.description }}
                         </div>
                     </div>
                 </div>
@@ -62,7 +111,42 @@
         </div>
     </div>
 
+    {% include 'footer.html' %}
+
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for description overlay -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all "Learn More" buttons
+            const detailButtons = document.querySelectorAll('.view-details-btn');
+            
+            // Get all close buttons
+            const closeButtons = document.querySelectorAll('.close-btn');
+            
+            // Add click event to detail buttons
+            detailButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceId = this.getAttribute('data-service-id');
+                    const serviceCard = document.getElementById(`service-card-${serviceId}`);
+                    
+                    // Toggle active class
+                    serviceCard.classList.add('description-active');
+                });
+            });
+            
+            // Add click event to close buttons
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceId = this.getAttribute('data-service-id');
+                    const serviceCard = document.getElementById(`service-card-${serviceId}`);
+                    
+                    // Remove active class
+                    serviceCard.classList.remove('description-active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

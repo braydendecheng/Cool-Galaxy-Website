@@ -1,7 +1,4 @@
-body {
-    font-family: 'Arial', sans-serif;
-}
-
+/* Navbar specific styles */
 .navbar {
     background-color: white !important;
 }
@@ -11,20 +8,26 @@ body {
     width: 250px;
 }
 
-.nav-link {
+.navbar .nav-link {
     color: black !important;
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-.btn-primary {
+/* Scope navbar button styles only to navbar */
+.navbar .btn-primary {
     background-color: #4a9cee;
     border-color: #4a9cee;
     padding: 10px 20px;
     font-size: 1.1rem;
 }
 
-.btn-info:hover {
+.navbar .btn-info:hover {
     background-color: #3a8bff;
     border-color: #3a8bff;
+}
+
+/* Keep font-family global if needed */
+body {
+    font-family: 'Arial', sans-serif;
 }
