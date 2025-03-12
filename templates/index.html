@@ -10,7 +10,7 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="container-fluid bg-light-blue min-vh-100 d-flex align-items-center">
+    <div class="container-fluid  min-vh-100 d-flex align-items-center">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -79,6 +79,46 @@
         </div>
     </div>
 </div>
+
+<!-- HVAC Solutions Section -->
+<section class="hvac-solutions py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Left Side: Residential Solutions -->
+            <div class="col-md-6 mb-4">
+                <div class="solution-item">
+                    <img src="{{ url_for('static', filename='img/ac-unit-icon.jpg') }}" alt="Air Conditioner Unit" class="solution-icon">
+                    <h2 class="solution-title">Residential Solutions</h2>
+                    <p class="solution-text">Our comfort specialists are here to help at affordable rates.</p>
+                </div>
+            </div>
+            
+            <!-- Right Side: Corporate Solutions -->
+            <div class="col-md-6 mb-4">
+                <div class="solution-item">
+                    <img src="{{ url_for('static', filename='img/commercial-hvac-icon.jpg') }}" alt="Commercial HVAC Unit" class="solution-icon">
+                    <h2 class="solution-title">Corporate Solutions</h2>
+                    <p class="solution-text">We are capable of handling large scale commercial aircon.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Images Section -->
+        <div class="row mt-4">
+            <!-- Left Side: Large Image -->
+            <div class="col-md-6 mb-4">
+                <img src="{{ url_for('static', filename='img/home aircon.jpg') }}" alt="Modern Living Room with AC" class="img-fluid solution-image">
+            </div>
+            
+            <!-- Right Side: Two Stacked Images -->
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <img src="{{ url_for('static', filename='img/commercial ac unit.jpg') }}" alt="Smartphone Controlling AC" class="img-fluid solution-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     {% include 'footer.html' %}
 
