@@ -6,122 +6,212 @@
     <title>Cool Galaxy Engineering - Reliable Cooling Company</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
+    <style>
+        /* Override the padding of the hvac-solutions class for the first section only */
+        .hero-section.hvac-solutions {
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+        }
+        
+        
+        /* Make sure no other styles are overriding our animation */
+        .btn.animate-element {
+            opacity: 0; /* Explicitly set opacity for buttons */
+            transform: translateY(20px);
+        }
+        
+        .btn.animate-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
     {% include 'navbar.html' %}
 
-    <div class="container-fluid  min-vh-100 d-flex align-items-center">
+    <div class="container-fluid min-vh-100 d-flex align-items-center hvac-solutions hero-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center animation-container">
                 <div class="col-lg-6">
-                    <h5 class="text-primary mb-3"><b>RELIABLE COOLING COMPANY</b></h5>
-                    <h1 class="display-4 fw-bold mb-4">Air Conditioning Service & Repair You Can Rely On</h1>
-                    <p class="lead mb-4">Our technicians are highly skilled with superior backgrounds.</p>
-                    <a href="/about" class="btn btn-primary btn-lg">More About Us</a>
+                    <h5 class="text-primary mb-3 animate-element" style="color: #4a9cee !important;"><b>RELIABLE COOLING COMPANY</b></h5>
+                    <h1 class="display-4 fw-bold mb-4 animate-element">Air Conditioning Service & Repair You Can Rely On</h1>
+                    <p class="lead mb-4 animate-element">Our technicians are highly skilled with superior backgrounds.</p>
+                    <!-- Explicitly make this a separate element for animation -->
+                    <div class="animate-element">
+                        <a href="/about" class="btn btn-primary btn-lg">More About Us</a>
+                    </div>
                 </div>
-                <div class="col-lg-6 text-center position-relative">
-                    <img src="{{ url_for('static', filename='img/ac-technician.jpg') }}" 
+                <div class="col-lg-6 text-center position-relative animate-element">
+                    <img src="{{ url_for('static', filename='img/servicing aircon transparent.png') }}" 
                          alt="AC Technician" class="img-fluid technician-image">
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1000;">
-        <a href="#chat" class="btn btn-success">
-            <i class="bi bi-whatsapp me-1"></i>Let's chat!
-        </a>
-    </div>
-
-    <!-- Partners Section -->
-<div class="container-fluid py-5 bg-white">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-12">
-                <h1 class="fw-bold"><span class="text-dark">Our</span> <span style="color: #4a9cee;">Partners</span></h1>
+     <!-- Partners Section -->
+     <div class="container-fluid py-5 bg-white">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 animate-element">
+                    <h1 class="fw-bold"><span class="text-dark">Our</span> <span style="color: #4a9cee;">Partners</span></h1>
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-2 col-sm-4 col-6 mb-4 text-center">
-                <img src="static\img\mitsubishi logo.png" 
-                     alt="Mitsubishi Electric" class="img-fluid" style="max-height: 100px;">
+            <div class="row justify-content-center align-items-center animation-container">
+                <div class="col-md-2 col-sm-4 col-6 mb-4 text-center animate-element">
+                    <img src="static\img\mitsubishi logo.png" 
+                         alt="Mitsubishi Electric" class="img-fluid" style="max-height: 100px;">
+                </div>
+                <div class="col-md-2 col-sm-4 col-6 mb-4 text-center animate-element">
+                    <img src="static\img\Daikin logo.png" 
+                         alt="Daikin" class="img-fluid" style="max-height: 100px;">
+                </div>
+                <div class="col-md-2 col-sm-4 col-6 mb-4 text-center animate-element">
+                    <img src="static\img\Toshiba Logo.png" 
+                         alt="Toshiba" class="img-fluid" style="max-height: 100px;">
+                </div>
+                <div class="col-md-2 col-sm-4 col-6 mb-4 text-center animate-element">
+                    <img src="static\img\fujitsu logo.webp" 
+                         alt="Fujitsu" class="img-fluid" style="max-height: 100px; margin-top: -10px; margin-right: 50px;">
+                </div>
             </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4 text-center">
-                <img src="static\img\Daikin logo.png" 
-                     alt="Daikin" class="img-fluid" style="max-height: 100px;">
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4 text-center">
-                <img src="static\img\Toshiba Logo.png" 
-                     alt="Toshiba" class="img-fluid" style="max-height: 100px;">
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4 text-center">
-                <img src="static\img\fujitsu logo.webp" 
-                     alt="Fujitsu" class="img-fluid" style="max-height: 100px; margin-top: -10px; margin-right: 50px;" >
-            </div>
-        </div>
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-2 col-sm-4 col-6 mb-4 text-center">
-                <img src="static\img\Lg Logo.png" 
-                     alt="LG" class="img-fluid" style="max-height: 100px;">
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4 text-center">
-                <img src="static/img/Midea Logo.png" 
-                     alt="Midea" class="img-fluid" style="max-height: 100px;">
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4 text-center">
-                <img src="static\img\Panasonic logo.png" 
-                     alt="Panasonic" class="img-fluid" style="max-height: 100px;">
-            </div>
-            <div class="col-md-2 col-sm-4 col-6 mb-4 text-center">
-                <img src="static\img\mitsubishi heavy logo.png" 
-                     alt="Mitsubishi Heavy Industries" class="img-fluid" style="max-height: 100px;">
+            <div class="row justify-content-center align-items-center animation-container">
+                <div class="col-md-2 col-sm-4 col-6 mb-4 text-center animate-element">
+                    <img src="static\img\Lg Logo.png" 
+                         alt="LG" class="img-fluid" style="max-height: 100px;">
+                </div>
+                <div class="col-md-2 col-sm-4 col-6 mb-4 text-center animate-element">
+                    <img src="static/img/Midea Logo.png" 
+                         alt="Midea" class="img-fluid" style="max-height: 100px;">
+                </div>
+                <div class="col-md-2 col-sm-4 col-6 mb-4 text-center animate-element">
+                    <img src="static\img\Panasonic logo.png" 
+                         alt="Panasonic" class="img-fluid" style="max-height: 100px;">
+                </div>
+                <div class="col-md-2 col-sm-4 col-6 mb-4 text-center animate-element">
+                    <img src="static\img\mitsubishi heavy logo.png" 
+                         alt="Mitsubishi Heavy Industries" class="img-fluid" style="max-height: 100px;">
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- HVAC Solutions Section -->
-<section class="hvac-solutions py-5">
-    <div class="container">
-        <div class="row">
-            <!-- Left Side: Residential Solutions -->
-            <div class="col-md-6 mb-4">
-                <div class="solution-item">
-                    <img src="{{ url_for('static', filename='img/ac-unit-icon.jpg') }}" alt="Air Conditioner Unit" class="solution-icon">
-                    <h2 class="solution-title">Residential Solutions</h2>
-                    <p class="solution-text">Our comfort specialists are here to help at affordable rates.</p>
+    <!-- HVAC Solutions Section -->
+    <section class="hvac-solutions py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Left Side: Residential Solutions -->
+                <div class="col-md-6 mb-4">
+                    <div class="solution-item animate-element">
+                        <img src="{{ url_for('static', filename='img/air-conditioner icon.png') }}" alt="Air Conditioner Unit" class="solution-icon">
+                        <h2 class="solution-title">Residential Solutions</h2>
+                        <p class="solution-text">Our comfort specialists are here to help at affordable rates.</p>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Corporate Solutions -->
+                <div class="col-md-6 mb-4">
+                    <div class="solution-item animate-element">
+                        <img src="{{ url_for('static', filename='img/air-conditioner-1 icon.png') }}" alt="Commercial HVAC Unit" class="solution-icon">
+                        <h2 class="solution-title">Corporate Solutions</h2>
+                        <p class="solution-text">We are capable of handling large scale commercial aircon.</p>
+                    </div>
                 </div>
             </div>
             
-            <!-- Right Side: Corporate Solutions -->
-            <div class="col-md-6 mb-4">
-                <div class="solution-item">
-                    <img src="{{ url_for('static', filename='img/commercial-hvac-icon.jpg') }}" alt="Commercial HVAC Unit" class="solution-icon">
-                    <h2 class="solution-title">Corporate Solutions</h2>
-                    <p class="solution-text">We are capable of handling large scale commercial aircon.</p>
+            <!-- Images Section -->
+            <div class="row mt-4">
+                <!-- Left Side: Image -->
+                <div class="col-md-6 mb-4 animate-element">
+                    <div style="height: 100%;">
+                        <img src="{{ url_for('static', filename='img/home aircon.jpg') }}" alt="Modern Living Room with AC" class="img-fluid solution-image" style="height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                
+                <!-- Right Side: Image -->
+                <div class="col-md-6 mb-4 animate-element">
+                    <div style="height: 100%;">
+                        <img src="{{ url_for('static', filename='img/commercial ac unit.jpg') }}" alt="Smartphone Controlling AC" class="img-fluid solution-image" style="height: 100%; object-fit: cover;">
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Images Section -->
-        <div class="row mt-4">
-            <!-- Left Side: Large Image -->
-            <div class="col-md-6 mb-4">
-                <img src="{{ url_for('static', filename='img/home aircon.jpg') }}" alt="Modern Living Room with AC" class="img-fluid solution-image">
-            </div>
-            
-            <!-- Right Side: Two Stacked Images -->
-            <div class="col-md-6">
-                <div class="mb-4">
-                    <img src="{{ url_for('static', filename='img/commercial ac unit.jpg') }}" alt="Smartphone Controlling AC" class="img-fluid solution-image">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     {% include 'footer.html' %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to check if an element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.left <= (window.innerWidth || document.documentElement.clientWidth) &&
+                    rect.bottom >= 0 &&
+                    rect.right >= 0
+                );
+            }
+            
+            // Add transition delay to all animated elements based on their position
+            function setAnimationDelays() {
+                // Process each animation container separately
+                document.querySelectorAll('.animation-container').forEach(container => {
+                    const elements = container.querySelectorAll('.animate-element');
+                    elements.forEach((element, index) => {
+                        // Set a delay based on element index (100ms increments)
+                        element.style.transitionDelay = (index * 0.1) + 's';
+                    });
+                });
+                
+                // For elements not in an animation container, handle in groups by parent
+                const nonContainerElements = document.querySelectorAll('.animate-element:not(.animation-container .animate-element)');
+                let currentParent = null;
+                let parentIndex = 0;
+                let childIndex = 0;
+                
+                nonContainerElements.forEach((element) => {
+                    if (element.parentElement !== currentParent) {
+                        currentParent = element.parentElement;
+                        parentIndex++;
+                        childIndex = 0;
+                    }
+                    
+                    // Set delay based on parent group and child position
+                    element.style.transitionDelay = (0.1 * childIndex) + 's';
+                    childIndex++;
+                });
+            }
+            
+            // Function to handle the animation of visible elements
+            function handleScrollAnimation() {
+                const elements = document.querySelectorAll('.animate-element');
+                
+                elements.forEach(function(element) {
+                    if (isInViewport(element)) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Set animation delays
+            setAnimationDelays();
+            
+            // Initial check on page load (with a small delay to ensure elements are fully rendered)
+            setTimeout(handleScrollAnimation, 100);
+            
+            // Check on scroll
+            window.addEventListener('scroll', handleScrollAnimation);
+            
+            // Also check on resize
+            window.addEventListener('resize', handleScrollAnimation);
+            
+            // Debug - check if the button has animation applied
+            console.log('Button element:', document.querySelector('.btn.animate-element'));
+        });
+    </script>
 </body>
 </html>

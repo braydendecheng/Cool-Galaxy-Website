@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Cool Galaxy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -107,34 +108,33 @@
 
     {% include 'navbar.html' %}
     <div class="container">
-        <h1 class="about-header"><span>About</span> <span>Cool Galaxy</span></h1>
+        <h1 class="about-header animate-element"><span>About</span> <span>Cool Galaxy</span></h1>
         
-        <div class="main-container">
+        <div class="main-container animation-container">
             <!-- LEFT SECTION: Images with overlap effect (smaller) -->
-            <div class="image-section">
+            <div class="image-section animate-element">
                 <div class="image-collage">
-                    <div class="ceiling-unit">
+                    <div class="ceiling-unit animate-element">
                         <img src="{{ url_for('static', filename='img/about us 1.png') }}" alt="Air Conditioning Unit" class="img-fluid">
                     </div>
                     
-                    <div class="technician">
+                    <div class="technician animate-element">
                         <img src="{{ url_for('static', filename='img/about us 2.png') }}" alt="Air Conditioning Installation" class="img-fluid">
                     </div>
                 </div>
             </div>
             
             <!-- RIGHT SECTION: Text content -->
-            <div class="text-section">
+            <div class="text-section animate-element">
                 <div class="text-content">
-                    <h2 class="section-title">Our Dedication</h2>
-                    <p class="content-paragraph">
+                    <h2 class="section-title animate-element">Our Dedication</h2>
+                    <p class="content-paragraph animate-element">
                         Cool Galaxy Engineering Pte Ltd is a leading air conditioning company based in Singapore, dedicated to delivering exceptional cooling solutions for both residential and commercial clients. With a wealth of experience in the aircon industry, we pride ourselves on our team of highly skilled technicians who are committed to providing outstanding service tailored to meet the unique needs of each client.
                     </p>
                     
-                    <h2 class="section-title">Our Commitment</h2>
-                    <p class="content-paragraph">
+                    <h2 class="section-title animate-element">Our Commitment</h2>
+                    <p class="content-paragraph animate-element">
                         At Cool Galaxy Engineering, we are driven by a passion for excellence and a commitment to customer satisfaction. Our team strives to provide professional advice and solutions that align with the specific requirements of our clients. We understand the importance of reliable air conditioning systems, and we aim to exceed expectations in every project we undertake.
-
                     </p>
                 </div>
             </div>
@@ -146,5 +146,74 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Animation JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to check if an element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.left <= (window.innerWidth || document.documentElement.clientWidth) &&
+                    rect.bottom >= 0 &&
+                    rect.right >= 0
+                );
+            }
+            
+            // Add transition delay to all animated elements based on their position
+            function setAnimationDelays() {
+                // Process each animation container separately
+                document.querySelectorAll('.animation-container').forEach(container => {
+                    const elements = container.querySelectorAll('.animate-element');
+                    elements.forEach((element, index) => {
+                        // Set a delay based on element index (100ms increments)
+                        element.style.transitionDelay = (index * 0.1) + 's';
+                    });
+                });
+                
+                // For elements not in an animation container, handle in groups by parent
+                const nonContainerElements = document.querySelectorAll('.animate-element:not(.animation-container .animate-element)');
+                let currentParent = null;
+                let parentIndex = 0;
+                let childIndex = 0;
+                
+                nonContainerElements.forEach((element) => {
+                    if (element.parentElement !== currentParent) {
+                        currentParent = element.parentElement;
+                        parentIndex++;
+                        childIndex = 0;
+                    }
+                    
+                    // Set delay based on parent group and child position
+                    element.style.transitionDelay = (0.1 * childIndex) + 's';
+                    childIndex++;
+                });
+            }
+            
+            // Function to handle the animation of visible elements
+            function handleScrollAnimation() {
+                const elements = document.querySelectorAll('.animate-element');
+                
+                elements.forEach(function(element) {
+                    if (isInViewport(element)) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Set animation delays
+            setAnimationDelays();
+            
+            // Initial check on page load
+            setTimeout(handleScrollAnimation, 100);
+            
+            // Check on scroll
+            window.addEventListener('scroll', handleScrollAnimation);
+            
+            // Also check on resize
+            window.addEventListener('resize', handleScrollAnimation);
+        });
+    </script>
 </body>
 </html>
