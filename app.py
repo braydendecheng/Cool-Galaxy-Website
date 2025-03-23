@@ -59,25 +59,25 @@ services = [
     {
         "id": 1,
         "name": "Installation Projects",
-        "image": "static/img/installation works.jpg",
+        "image": "static/images/installation works.jpg",
         "description": "Our expert team handles the installation of various air conditioning systems, ensuring optimal performance and energy efficiency for your space."
     },
     {
         "id": 2,
         "name": "VRV Systems",
-        "image": "static/img/VRV Systems.jpg",
+        "image": "static/images/VRV Systems.jpg",
         "description": "We offer advanced Variable Refrigerant Volume (VRV) systems that provide flexible and energy-efficient climate control suitable for diverse environments."
     },
     {
         "id": 3,
         "name": "Ducting Work",
-        "image": "static/img/Ducting Work.jpg",
+        "image": "static/images/Ducting Work.jpg",
         "description": "Our specialists are proficient in designing and installing ducting systems that facilitate efficient air distribution while maintaining aesthetic appeal."
     },
     {
         "id": 4,
         "name": "Servicing and Maintenance",
-        "image": "static/img/ac-technician.jpg",
+        "image": "static/images/ac-technician.jpg",
         "description": "We provide regular maintenance and servicing to ensure your air conditioning systems operate at peak performance, prolonging their lifespan and enhancing energy efficiency."
     }
 ]
