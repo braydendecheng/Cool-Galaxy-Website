@@ -59,13 +59,13 @@ services = [
     {
         "id": 1,
         "name": "Installation Projects",
-        "image": "static/images/installation works.jpg",
+        "image": "static/images/installation-works.jpg",
         "description": "Our expert team handles the installation of various air conditioning systems, ensuring optimal performance and energy efficiency for your space."
     },
     {
         "id": 2,
         "name": "VRV Systems",
-        "image": "static/images/VRV Systems.jpg",
+        "image": "static/images/VRV-Systems.jpg",
         "description": "We offer advanced Variable Refrigerant Volume (VRV) systems that provide flexible and energy-efficient climate control suitable for diverse environments."
     },
     {
