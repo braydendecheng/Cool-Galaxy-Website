@@ -71,7 +71,7 @@ services = [
     {
         "id": 3,
         "name": "Ducting Work",
-        "image": "static/images/ac-technician.jpg",
+        "image": "static/images/Ducting Work.jpg",
         "description": "Our specialists are proficient in designing and installing ducting systems that facilitate efficient air distribution while maintaining aesthetic appeal."
     },
     {
